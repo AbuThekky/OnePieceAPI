@@ -51,6 +51,13 @@ public class API_Service {
 		return this.repo.save(apiToUpdate);
 		
 	}
+    
+    public boolean deleteChar(Integer id) {
+		this.repo.deleteById(id);
+		boolean exists = this.repo.existsById(id);
+		return !exists;
+	}
+
 
 
 

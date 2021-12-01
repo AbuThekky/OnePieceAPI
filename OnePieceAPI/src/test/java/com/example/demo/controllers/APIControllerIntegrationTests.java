@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -105,6 +106,14 @@ public class APIControllerIntegrationTests {
 
 		this.mvc.perform(request).andExpect(status).andExpect(content);
 	}
+	
+	@DirtiesContext
+	@Test
+	void deleteCharTest() throws Exception {
+		this.mvc.perform(delete("/api/delete/1")).andExpect(status().isOk());
+
+	}
+
 
 
 	
