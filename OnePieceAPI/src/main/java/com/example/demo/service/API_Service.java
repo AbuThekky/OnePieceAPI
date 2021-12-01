@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 
@@ -21,5 +23,10 @@ public class API_Service {
 		return this.repo.save(api);
 	}
 	
+
+	public List<API> getAllCharacters() {
+		return this.repo.findAll();
+	}
+
 	
 }
