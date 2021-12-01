@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
+import com.example.demo.exeptions.APINotFoundException;
 import com.example.demo.model.API;
 import com.example.demo.repo.API_Repo;
+
+
 
 @Service
 public class API_Service {
@@ -27,6 +29,14 @@ public class API_Service {
 	public List<API> getAllCharacters() {
 		return this.repo.findAll();
 	}
+	
+	public API getById(Integer id) {
+		API foundCharacter = this.repo.findById(id).orElseThrow(APINotFoundException::new);
+		return foundCharacter;
+		
+	}
+
+
 
 	
 }
