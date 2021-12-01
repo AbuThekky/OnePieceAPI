@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,6 +48,13 @@ public class API_Controller {
 		return new ResponseEntity<API>(this.service.getById(id), HttpStatus.OK);
 
 	}
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<API> updateCharacter(@RequestBody API api, @PathVariable Integer id) {
+		ResponseEntity<API> response = new ResponseEntity<API>(this.service.updateAPI(api, id), HttpStatus.ACCEPTED); // 202
+		return response;
+	}
+
 
 
 
