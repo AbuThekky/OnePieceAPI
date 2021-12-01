@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -89,6 +90,22 @@ public class APIControllerIntegrationTests {
 		this.mvc.perform(request).andExpect(status).andExpect(content);
 
 	}
+	
+	@DirtiesContext
+	@Test
+	void updateCharTest() throws Exception {
+		String testAPIAsJsonResponse = this.mapper.writeValueAsString(
+				new API(2, 3, "Red-Haired Shanks", "4,048,900,000", "no devil fruit", "Red-Haired Pirates", "Captain"));
+
+		RequestBuilder request = put("/api/update/2").contentType(MediaType.APPLICATION_JSON)
+				.content(testAPIAsJsonResponse);
+
+		ResultMatcher status = status().isAccepted();
+		ResultMatcher content = content().json(testAPIAsJsonResponse);
+
+		this.mvc.perform(request).andExpect(status).andExpect(content);
+	}
+
 
 	
 
