@@ -69,9 +69,26 @@ public class APIControllerIntegrationTests {
 		ResultMatcher content = content().json(listofCharJson);
 		System.out.println(request);
 		this.mvc.perform(request).andExpect(status).andExpect(content);
+		
+	
 
 	}
 
+	@DirtiesContext
+	@Test
+	void getByIdTest() throws Exception {
+		;
+		String foundCharAsJson = this.mapper.writeValueAsString(
+				new API(1, 1, "Gold.D.Roger", "5,564,800,000", "no devil fruit", "Roger Pirates", "Captain"));
+
+		RequestBuilder request = get("/api/1");
+
+		ResultMatcher status = status().isOk();
+		ResultMatcher content = content().json(foundCharAsJson);
+
+		this.mvc.perform(request).andExpect(status).andExpect(content);
+
+	}
 
 	
 
