@@ -1,11 +1,12 @@
 package com.example.demo.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,27 @@ public class APIControllerIntegrationTests {
 
 		this.mvc.perform(request).andExpect(status).andExpect(content);
 	}
+	
+	@DirtiesContext
+	@Test
+	void getAllCharacterTest() throws Exception {
+		String listofCharJson = this.mapper.writeValueAsString(
+				List.of(new API(1, 1, "Gold.D.Roger", "5,564,800,000", "no devil fruit", "Roger Pirates", "Captain"),
+						new API(2, 2, "Edward Newgate", "5,046,000,000", "Gura-Gura no Mi (Tremor-Tremor Fruit)",
+								"Whitebeard Pirates", "Captain"),
+						new API(3, 4, "Kaido of the Beasts", "4,611,000,000", "Fish-Fish fruit, Model: Azure Dragon",
+								"Beast Pirates", "Captain")));
 
+		RequestBuilder request = get("/api/getAll");
+
+		ResultMatcher status = status().isOk();
+		ResultMatcher content = content().json(listofCharJson);
+		System.out.println(request);
+		this.mvc.perform(request).andExpect(status).andExpect(content);
+
+	}
+
+
+	
 
 }
