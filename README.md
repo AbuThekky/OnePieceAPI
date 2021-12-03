@@ -13,4 +13,22 @@
 •	Possible improvements for future revisions of the project. 
 “I would attach a cloud database that could store 100s of  prepopulated data so that there would be differentiation of data and also the API would be handier and more fun to use.”
 
-[pic1](https://imgur.com/KoqGFIx)
+Postman Images: CRUD
+[pic1: Create](https://imgur.com/KoqGFIx)
+[pic2: Grab Character ID](https://imgur.com/a/0OQPP3V)
+[pic3: Grab All ID](https://imgur.com/a/4bmzX4M)
+[pic4: Update](https://imgur.com/a/BXgrtQN) --> [pic4: Change of position category](https://imgur.com/a/TDS4QQI)
+[pic5: Grab Category](https://imgur.com/a/3dndizN)
+
+Coverage:
+[pic1](https://imgur.com/a/GpSLD1p)
+
+Database:
+[pic1: Evidence of values going through](https://imgur.com/a/uw6Seed)
+
+Risk Assessment:
+[pic1](https://imgur.com/a/BxvlwHt)
+
+Jira:
+[picture](https://imgur.com/a/gxNhpoL)
+actual link: https://projecttraking.atlassian.net/jira/software/projects/ON/boards/2/roadmap?assignee=unassigned
